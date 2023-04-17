@@ -293,7 +293,7 @@ option {
 .left-sec {
   height: 100%;
   width: 50%;
-  background-image: url("assets/women.jpg");
+  background-image: url("/assets/women.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -342,7 +342,7 @@ option {
 .ansible {
   width: 1315px;
   height: 400px;
-  background-image: url(assets/ansible.png);
+  background-image: url(/assets/ansible.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

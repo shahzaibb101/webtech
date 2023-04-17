@@ -1,0 +1,98 @@
+body {
+    padding-top: 66px;
+}
+
+a {
+    text-decoration: none;
+    color: none;
+}
+
+.fa-facebook, .fa-instagram, .fa-snapchat, .fa-twitter{
+    color: black;
+}
+
+.fa-facebook:hover, .fa-instagram:hover, .fa-snapchat:hover, .fa-twitter:hover {
+    color: rgb(81, 61, 229);
+}
+
+.c1 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-banner {
+    background-image: url("assets/header-banner.jpg");
+}
+
+.banner2 {
+    background-image: url("assets/grocery.jpg");
+    background-repeat: no-repeat;
+}
+
+.banner3 {
+    background-image: url("assets/grocery1.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.banner4 {
+    background-image: url("assets/grocery2.jpg");
+    background-repeat: no-repeat;
+}
+
+.banner5 {
+    background-image: url("assets/grocery3.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.order-btn {
+
+}
+
+.order-btn:hover {
+    opacity: 0.8;
+}
+
+.footer {
+    background-color: rgb(214, 216, 225);
+}
+
+a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.n1 {
+    height: 500px;
+    background-image: url("assets/n1.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.n2 {
+    height: 500px;
+    background-image: url("assets/n2.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.n3 {
+    height: 500px;
+    background-image: url("assets/n3.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.n4 {
+    height: 500px;
+    background-image: url("assets/n4.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

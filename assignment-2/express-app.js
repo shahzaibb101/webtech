@@ -54,6 +54,18 @@ var sessionChecker = (req,res,next) => {
 //   res.redirect('/login')
 // })
 
+app.route('/logout')
+.get(sessionChecker,(req,res) => {
+  req.session.user = null;
+  req.setFlash("danger", "Logged out!");
+  res.redirect("/login");
+})
+
+app.route('/dashboard')
+.get(sessionChecker,(req,res) => {
+  res.render("dashboard");
+})
+
 app.route('/login')
 .get(sessionChecker,(req,res) => {
   res.render("login");
@@ -66,17 +78,19 @@ app.route('/login')
     var user = await monmodel.findOne({uname:uname}).exec()
     if(!user) {
       req.setFlash("danger", "User with this email not present");
-      return res.render("login")
+      return res.redirect("/login")
     }
     const validPassword = await bcrypt.compare(req.body.password, user.password);
     if(validPassword) {
       req.session.user = user
       console.log("matched");
-      return res.render("dashboard")
+      req.setFlash("success", "Logged in Successfully");
+      return res.redirect("/dashboard")
     }
     else {
       console.log("not matched");
-      return res.render("login")
+      req.setFlash("danger", "Invalid Password");
+      return res.redirect("/login")
     }
     console.log(user)
   }
@@ -104,11 +118,13 @@ app.route('/signup')
   try {
     const val = await data.save();
     console.log(val)
-    res.render("login")
+    req.setFlash("success", "Sign Up successful");
+    res.redirect("/login")
   }
   catch (err) {
     console.log(err)
-    res.render("signup")
+    req.setFlash("danger", "Could not Sign Up");
+    res.redirect("/signup")
   }
 })
 

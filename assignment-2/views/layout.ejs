@@ -10,8 +10,10 @@
 </head>
 <body>
   <nav>
-    <img src="/assets/redhat.png" style="height: 35px; width: 45px; margin-left: 30px;">
-    <a href="#" style="text-decoration: none; color: white; margin-left: 10px; font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;"><b>Red Hat</b></a>
+    <div style="width: 180px;">
+      <img src="/assets/redhat.png" style="height: 35px; width: 45px; margin-left: 30px;">
+      <a href="#" style="text-decoration: none; color: white; margin-left: 10px; font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;"><b>Red Hat</b></a>
+    </div>
     
     <div id="one">
       <hr class="hr" style="width: 58px; margin-left: -5px; margin-top: -5px; height: 2px;">
@@ -54,21 +56,28 @@
       <img src="assets/english.jpg" style="height: 18px; width: 18px; margin-top: -5px;">
       <a href="#" style="color: white; margin-top: 14px; font-size: 12px; margin-top: 4px;">English</a>
     </div> -->
-    <div id="r2" style="align-items: center; margin-left: -30px;">
-      <hr class="hr" style="width: 52px; margin-left: 3px; margin-top: -5px; height: 2px;">
-      <img src="assets/login.png" style="height: 18px; width: 18px; margin-top: -5px;">
-      <a href="/signup" style="color: white; margin-top: 14px; font-size: 12px; margin-top: 4px;">Sign Up</a>
-    </div>
-    <div id="r3" style="align-items: center; margin-left: -41px;">
-      <hr class="hr" style="width: 52px; margin-left: 3px; margin-top: -5px; height: 2px;">
-      <img src="assets/login.png" style="height: 18px; width: 18px; margin-top: -5px;">
-      <a href="/login" style="color: white; margin-top: 14px; font-size: 12px; margin-top: 4px;">Login</a>
-    </div>
+    <% if (!user) { %>
+      <div id="r2" style="align-items: center; margin-left: -30px;">
+        <hr class="hr" style="width: 52px; margin-left: 3px; margin-top: -5px; height: 2px;">
+        <img src="assets/login.png" style="height: 18px; width: 18px; margin-top: -5px;">
+        <a href="/signup" style="color: white; margin-top: 14px; font-size: 12px; margin-top: 4px;">Sign Up</a>
+      </div>
+      <div id="r3" style="align-items: center; margin-left: -41px;">
+        <hr class="hr" style="width: 52px; margin-left: 3px; margin-top: -5px; height: 2px;">
+        <img src="assets/login.png" style="height: 18px; width: 18px; margin-top: -5px;">
+        <a href="/login" style="color: white; margin-top: 14px; font-size: 12px; margin-top: 4px;">Login</a>
+      </div>
+    <% } else { %>
+      <div id="r3" style="align-items: center; margin-left: -30px;">
+        <hr class="hr" style="width: 52px; margin-left: 3px; margin-top: -5px; height: 2px;">
+        <img src="assets/login.png" style="height: 18px; width: 18px; margin-top: -5px;">
+        <a href="/logout" style="color: white; margin-top: 14px; font-size: 12px; margin-top: 3px;">Logout</a>
+      </div>
+    <% } %>
   </nav>
   <div style="height: 70px"></div>
   <% if (flash) { %>
-    <div class="alert alert-<%-flash.type%>">
-      <h1 style="color:black">ok</h1>
+    <div class="alert alert-<%-flash.type%>" style="position: fixed; margin-left: 90px; margin-top: 10px; width: 90%;">
       <%= flash.message %>
     </div>
   <% } %>

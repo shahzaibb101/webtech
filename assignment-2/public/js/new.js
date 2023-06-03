@@ -7,11 +7,6 @@ function doBindings() {
     document.getElementById("comb2").onmouseout = decHrHeight.bind(this,'v12','p2','hd2');
     document.getElementById("comb3").onmouseover = incHrHeight.bind(this,'v13','p3','hd3');
     document.getElementById("comb3").onmouseout = decHrHeight.bind(this,'v13','p3','hd3');
-    document.getElementById("r2").onclick = gotoValidation;
-}
-
-function gotoValidation() {
-    window.open("test.html");
 }
 
 function incHrHeight(var1, var2, var3) {

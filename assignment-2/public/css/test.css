@@ -50,8 +50,8 @@ button:hover {
 }
 
 body {
-  padding: 130px 520px;
-  background-image: url("assets/back.jpg");
+  /* padding: 130px 520px; */
+  background-image: url("/assets/back.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -64,6 +64,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 90px 0;
   box-shadow: 0 0 50px 15px #48abe0;
 }

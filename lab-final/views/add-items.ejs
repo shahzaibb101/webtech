@@ -1,0 +1,32 @@
+<style>
+    body {
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form action="/add-food" method="POST">
+                <div class="form-group">
+                  <label for="type">Type</label>
+                  <input type="text" class="form-control" id="type" name="type" placeholder="Enter type">
+                </div>
+                <div class="form-group"> 
+                  <label for="category">Name</label>
+                  <input type="text" class="form-control" id="category" name="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                  <label for="calories">Calories</label>
+                  <input type="text" class="form-control" id="calories" name="calories" placeholder="Enter calories">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </div>
+</div>

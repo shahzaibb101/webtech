@@ -1,0 +1,27 @@
+<h1 style="margin-top: 100px; margin-left: 400px;">Foods</h1>
+<table class="table" style="margin-top: 50px;">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% foods.forEach(function(user) { %>
+            <tr>
+              <td><%= user.type %></td>
+              <td><%= user.name %></td>
+              <td><%= user.calories %></td>
+              <td>
+                <form method="POST" action="/delete">
+                  <input type="hidden" name="name" value="<%= user.name %>">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+    </tbody>
+  </table>
+<button style="margin-top: 50px;" class="btn btn-danger"><a style="color: white; text-decoration: none;" href="/add-food">Add new Food</a></button>

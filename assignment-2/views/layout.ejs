@@ -68,6 +68,19 @@
         <a href="/login" style="color: white; margin-top: 14px; font-size: 12px; margin-top: 4px;">Login</a>
       </div>
     <% } else { %>
+      <% if (user.isAdmin) { %>
+        <div id="r3" style="align-items: center; margin-left: -25px;">
+          <hr class="hr" style="width: 52px; margin-left: 3px; margin-top: -5px; height: 2px;">
+          <img src="assets/login.png" style="height: 18px; width: 18px; margin-top: -5px;">
+          <a href="/view-users" style="color: white; margin-top: 14px; font-size: 12px; margin-top: 3px;">View Users</a>
+        </div>
+      <% } else { %>
+        <div id="r3" style="align-items: center; margin-left: -30px; margin-right: -10px;">
+          <hr class="hr" style="width: 52px; margin-left: 3px; margin-top: -5px; height: 2px;">
+          <img src="assets/login.png" style="height: 18px; width: 18px; margin-top: -5px;">
+          <a href="/profile" style="color: white; margin-top: 14px; font-size: 12px; margin-top: 3px;">Profile</a>
+        </div>
+      <% } %> 
       <div id="r3" style="align-items: center; margin-left: -30px;">
         <hr class="hr" style="width: 52px; margin-left: 3px; margin-top: -5px; height: 2px;">
         <img src="assets/login.png" style="height: 18px; width: 18px; margin-top: -5px;">

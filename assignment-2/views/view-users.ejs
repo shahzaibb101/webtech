@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div class="container mt-4" style="min-height: 600px;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Admin Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(user) { %>
+          <tr>
+            <td><%= user.uname %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phno %></td>
+            <td><%= user.isAdmin %></td>
+            <td>
+              <form method="POST" action="/delete">
+                <input type="hidden" name="uname" value="<%= user.uname %>">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

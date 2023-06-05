@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <%  %>
+  <div class="container mt-4" style="min-height: 600px;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Action</th>
+          <th>Action</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <%= user.uname %> </td>
+          <td> <%= user.email %> </td>
+          <td> <%= user.phno %> </td>
+          <td>
+            <form method="GET" action="/update-email">
+              <input type="hidden" name="uname" value="<%= user.uname %>">
+              <button type="submit" class="btn btn-danger">Update Email</button>
+            </form>
+          </td>
+          <td>
+            <form method="GET" action="/update-phone">
+              <input type="hidden" name="uname" value="<%= user.uname %>">
+              <button type="submit" class="btn btn-danger">Update Phone</button>
+            </form>
+          </td>
+          <td>
+            <form method="GET" action="/update-password">
+              <input type="hidden" name="uname" value="<%= user.uname %>">
+              <button type="submit" class="btn btn-danger">Update Password</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <% if (updatekey == "email") { %>
+        <form method="POST" action="/update-email">
+            <input type="hidden" name="uname" value="<%= user.uname %>">
+            <input type="text" placeholder="Enter New Email" name="email" required id="email">
+            <button type="submit" class="btn btn-success" id="s-btn">Update</button>
+        </form>
+    <% } else if (updatekey == "phone"){ %>
+        <form method="POST" action="/update-phone">
+            <input type="hidden" name="uname" value="<%= user.uname %>">
+            <input type="text" placeholder="Enter New Phone" name="phno" required id="email">
+            <button type="submit" class="btn btn-success" id="s-btn">Update</button>
+        </form>
+    <% } else if (updatekey == "password"){ %>
+        <form  method="POST" action="/update-password">
+            <input type="hidden" name="uname" value="<%= user.uname %>">
+            <input type="text" placeholder="Enter New Password" name="password" required id="email">
+            <button type="submit" class="btn btn-success" id="s-btn">Update</button>
+        </form>
+    <% } %>
+  </div>
+</body>
+</html>

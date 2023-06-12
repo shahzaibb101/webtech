@@ -1,0 +1,1 @@
+!function(){var s="_WidgetJPCB_Version",n={v:"13.8.36",assets:{"legacy.js":"/assets/legacy.".concat(13836,".js"),"modern.js":"/assets/modern_initializer.".concat(13836,".js")}};window[s]&&"function"==typeof window[s]&&window[s](n)}();

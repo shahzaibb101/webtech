@@ -1,0 +1,31 @@
+jQuery('.slider').each(function() {
+  var minValue = Number(jQuery(this).attr('data-min')),
+      maxValue = Number(jQuery(this).attr('data-max')),
+      value = Number(jQuery(this).attr('data-value')),
+      step = Number(jQuery(this).attr('data-step')),
+      $this = jQuery(this);
+  
+  $this.slider({
+    range: 'min',
+    value: value,
+    min: minValue,
+    max: maxValue,
+    step: step,
+    slide: function(event, ui) {
+      var currentValue = ui.value;
+      if(currentValue > 999) {
+        currentValue = currentValue / 1000 + 'k';
+      }
+      jQuery(this).find('.value').html(currentValue).attr('data-selected-value', ui.value);
+    }
+  });
+  
+  var sliderHandle = $this.find('.ui-slider-handle'),
+      currentValue = sliderHandle.parent().attr('data-value');
+  sliderHandle.append('<span class="value min-value" data-selected-value="'+ currentValue +'"></span>');
+  
+  if(minValue > 999) {
+    value = value / 1000 + 'k';
+  }
+  $this.find('.value').html(value);
+});

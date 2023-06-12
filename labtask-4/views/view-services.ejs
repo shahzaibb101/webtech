@@ -1,0 +1,192 @@
+<style>
+  
+      .card {
+        width: 350px;
+        height: 530px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        perspective: 1000px; /* Perspective for 3D effect */
+        margin-bottom: 80px;
+        margin-right: 90px;
+      }
+      
+      .card-inner {
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%; 
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+      }
+      
+      
+      .card-front {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden; /* Hide the backface of the card */
+      }
+      
+      .card-front img {
+        margin-top: 10px;
+      }
+      
+      .card img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+      }
+      
+      .card h3 {
+        font-size: 18px;
+        margin: 0;
+      }
+      
+      .card p {
+        font-size: 14px;
+        color: #555;
+        margin: 5px 0;
+      }
+      
+      .card .price {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .add-to-cart-btn {
+        display: block;
+        width: 50px;
+        padding: 10px;
+        background-color: #337ab7;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .add-to-cart-btn:hover {
+        background-color: #23527c;
+      }
+  
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999; /* Ensure the overlay is on top */
+      }
+  
+      .modal-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        position: relative; /* Ensure close button is positioned relative to the form */
+      }
+  
+      .modal-form label {
+        display: block;
+        margin-bottom: 10px;
+      }
+  
+      .modal-form input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        border-radius: 3px;
+      }
+  
+      .modal-form button {
+        display: block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #337ab7;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+      }
+  
+      .modal-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+
+      .favorite-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.favorite-btn i {
+  color: #777;
+  transition: color 0.3s;
+}
+
+.favorite-btn i.fa-heart {
+  color: red;
+}
+
+
+      /* .card:hover .card-front img {
+  transform: scale(1.1); 
+  transition: transform 0.6s;
+} */
+
+  
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- products.ejs -->
+  
+  <div style="min-height: 1000px;">
+    <div style="height: 80px;"></div>
+    <div class="row" style="margin-left: 185px;">
+      <% products.forEach(product => { %>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="/assets/<%= product.url %>" alt="Clothing Image">
+            </div>
+          </div>
+          <h3 style="margin-top: 20px;"><%= product.title %><span style="float: right; font-family: cursive;">@<%= product.user_id %></span></h3>
+          <p style="margin-top: -3px;"><%= product.explain %></p>
+          <p class="price">$ <%= product.price %></p>
+          <div style="display: flex; flex-direction: row;">
+            <a href="/cart?seller_id=<%= product.user_id %>&user_id=<%= user.uname %>&service_title=<%= product.title %>&service_price=<%= product.price %>&service_detail=<%= product.explain %>&service_url=<%= product.url %>" class="add-to-cart-btn" style="width: 230px;" data-product-id="<%= product._id %>" data-product-name="<%= product.name %>">Purchase</a>
+            <button class="favorite-btn" style="height: 50px; width: 50px;" data-product-id="<%= product._id %>"><i class="far fa-heart"></i></button>
+            <p style="margin-top: 12px; color: #333; font-size: 18px;"><b>Like</b></p>
+        </div>
+        </div>
+      <% }) %>
+    </div>
+  
+  <script>
+// JavaScript code to handle button click and close the overlay
+
+// JavaScript code to handle favorite button click and toggle the heart icon color
+
+// Get all the favorite buttons
+const favoriteButtons = document.querySelectorAll(".favorite-btn");
+
+// Add click event listener to each favorite button
+favoriteButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    // Toggle the class to change the heart icon color
+    button.querySelector("i.fa-heart").classList.toggle("far");
+    button.querySelector("i.fa-heart").classList.toggle("fas");
+  });
+});
+  </script>

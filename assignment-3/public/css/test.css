@@ -1,0 +1,78 @@
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  background: none;
+  border: 2px solid white;
+  border-radius: 30px;
+}
+
+::placeholder {
+  color: white;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background: none;
+  outline: none;
+}
+
+
+/* Set a style for all buttons */
+button {
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border: 2px solid white;
+  border-radius: 30px;
+}
+
+button:hover {
+  opacity:1;
+}
+
+
+.signupbtn {
+  width: 30%;
+  font-size: medium;
+}
+
+.signupbtn:hover {
+  opacity: 0.6;
+}
+
+body {
+  /* padding: 130px 520px; */
+  background-image: url("/assets/back.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 0;
+  box-shadow: 0 0 50px 15px #48abe0;
+}
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+}

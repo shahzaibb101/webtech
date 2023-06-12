@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+  <style>
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+
+    .cart-item-details {
+      flex-grow: 1;
+    }
+
+    .cart-item-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .cart-item-price {
+      font-size: 16px;
+      color: #888;
+      margin-bottom: 5px;
+    }
+
+    .delete-button {
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .checkout-button {
+      background-color: rgb(83, 189, 83);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999; /* Ensure the overlay is on top */
+    }
+
+    .overlay-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      position: relative; /* Ensure close button is positioned relative to the form */
+    }
+
+    .overlay-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" style="min-height: 1000px;">
+    <div style="height: 70px;"></div>
+    <hr>
+    <% let totalCost = 0; %>
+    <% cartItems.forEach(item => { %>
+      <% if (item.user_id == user.uname) { %>
+        <% totalCost += item.service_price; %>
+        <div class="cart-item">
+          <img src="/assets/<%= item.service_url %>" alt="Product Image">
+          <div class="cart-item-details">
+            <h3 class="cart-item-title"><%= item.service_title %></h3>
+            <p class="cart-item-price"><%= item.service_detail %></p>
+            <p class="cart-item-price"><%= item.service_id %></p>
+            <p class="cart-item-price" style="color: #337ab7;">$<%= item.service_price %></p>
+          </div>
+          <button class="delete-button"><a style="color: white;" href="/delete-cart?product_id=<%= item._id %>">Delete</a></button>
+        </div>
+        <hr>
+      <% } %>
+    <% }) %>
+    <% if (cartItems.length > 0) { %>
+      <p>Total Cost: $<%= totalCost %></p>
+      <button class="checkout-button" onclick="showOverlay()">Check Out</button>
+    <% } %>
+    <div class="overlay" id="overlay">
+      <div class="overlay-content">
+        <span class="overlay-close" onclick="hideOverlay()"><a href="/deleteAllCart?user_id=<%= user.uname %>">&times;</a></span>
+        <h2>Thank You for Choosing Coders HUB.</h2>
+      </div>
+    </div>
+  </div>
+  <script>
+    function removeFromCart(itemId) {
+      // Perform the logic to remove the item from the cart
+      // You can use AJAX or form submission to send the request to the server
+      // and update the cart on the server-side.
+
+      // Example using AJAX
+      // var xhr = new XMLHttpRequest();
+      // xhr.open('POST', '/remove-from-cart', true);
+      // xhr.setRequestHeader('Content-Type', 'application/json');
+      // xhr.onload = function() {
+      //   // Handle the response from the server
+      // };
+      // xhr.send(JSON.stringify({ itemId: itemId }));
+    }
+
+    function showOverlay() {
+      document.getElementById('overlay').style.display = 'flex';
+    }
+
+    function hideOverlay() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function checkout() {
+      // Perform the logic for checkout
+      // You can redirect to a checkout page or proceed with the necessary actions.
+
+      // Example redirecting to a checkout page
+      // window.location.href = "/checkout";
+    }
+  </script>
+</body>
+</html>

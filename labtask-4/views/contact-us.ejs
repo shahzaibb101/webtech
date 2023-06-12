@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/test.css">
+    <script src="/js/test.js"></script>
+</head>
+<body>
+    <%  %>
+        <form action="/contact-us" id="form" method="POST">
+          <div class="container" style="margin-top: 100px; margin-bottom: 120px; width: 700px;">
+            <h1 style="color: white;">Contact Us</h1>
+            <input style="color: white; width: 500px;" type="hidden" placeholder="Enter Query" name="uname" required id="email" value="<%= user.uname %>">
+            <input style="color: white; width: 500px;" type="text" placeholder="Enter Query" name="query" required id="email">
+            <button type="submit" class="signupbtn" id="s-btn">Submit</button>
+          </div>
+        </form>
+</body>
+</html>
